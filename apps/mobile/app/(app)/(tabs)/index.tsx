@@ -3,17 +3,15 @@ import ListHeading from "@/components/ListHeading";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import SubscriptionStateView from "@/components/SubscriptionStateView";
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
+import { icons } from "@/config/icons";
 import images from "@/config/images";
 import { getUpcomingSubscriptions } from "@/features/subscriptions/utils";
 import { useSubscriptions } from "@/providers/SubscriptionContext";
 import { useUser } from "@clerk/expo";
 import { router } from "expo-router";
-import { styled } from "nativewind";
 import { Fragment, useState } from "react";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
-import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
-
-const SafeAreaView = styled(RNSafeAreaView);
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
   const [createVisible, setCreateVisible] = useState(false);
@@ -37,7 +35,7 @@ export default function Home() {
     router.push({ pathname: "/subscriptions/[id]", params: { id } });
 
   return (
-    <SafeAreaView className="flex-1 bg-background p-5">
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff9e3", padding: 20 }}>
       <FlatList
         ListHeaderComponent={() => (
           <Fragment>
@@ -52,12 +50,17 @@ export default function Home() {
                 <Text className="home-user-name">{displayName}</Text>
               </View>
               <Pressable
-                className="rounded-full bg-primary px-4 py-2"
+                className="size-12 items-center justify-center"
+                hitSlop={8}
                 onPress={() => setCreateVisible(true)}
                 accessibilityRole="button"
                 accessibilityLabel="Add subscription"
               >
-                <Text className="font-sans-bold text-background">Add</Text>
+                <Image
+                  source={icons.plus}
+                  className="home-add-icon"
+                  resizeMode="contain"
+                />
               </Pressable>
             </View>
 

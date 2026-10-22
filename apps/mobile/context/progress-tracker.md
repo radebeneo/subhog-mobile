@@ -61,6 +61,13 @@
 - Expo web server bundled and started the application at port 8083 with analytics disabled. CM Browser eventually reported `/sign-in` but no content or controls; panel presentation timed out and screenshot returned no usable result. No real authentication, runtime parity, or endpoint-specific network verification was established.
 - Updated `docs/verification-report.md` and the extraction checklist with these limits. Full acceptance and the local delivery commit remain deferred; no commit, push, backend, or broad dependency fix performed.
 
+## Development Banner Removal — 2026-10-22
+
+- Removed the development data banner and its extra top safe-area wrapper from `app/(app)/_layout.tsx` at the user's request. Individual screens retain their safe-area handling.
+- Preserved Clerk authentication, session-keyed `SubscriptionProvider`, development-only data gating, in-memory resets, and analytics suppression.
+- Updated the layout regression test to assert that the stack remains present without banner text or an extra safe-area spacer; synchronized current UI and architecture documentation.
+- Validation passed against existing dependencies: `npm run lint`, `npm run typecheck` (application and tests), all 62 tests, web export, and Expo Doctor (21/21). Ran with local Node 26.12.0 / npm 11.20.0, not the repository-pinned versions. Existing Node module-type and React test-renderer deprecation warnings remain; authenticated native visual verification was not run.
+
 ## Next Up — Acceptance Gates
 
 - Complete pinned-tooling clean installation and rerun checks in that clean environment.

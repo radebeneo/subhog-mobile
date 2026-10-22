@@ -20,6 +20,7 @@ export const KeyboardAvoidingView = "KeyboardAvoidingView";
 export const ActivityIndicator = "ActivityIndicator";
 export const SafeAreaView = "SafeAreaView";
 export const Image = "Image";
+export const SvgUri = "SvgUri";
 export const Platform = { OS: "ios" };
 export const alerts = [];
 export const Alert = { alert: (...args) => alerts.push(args) };

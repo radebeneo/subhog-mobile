@@ -39,7 +39,7 @@ SubHog Next represents a clean decoupling of the client application from the leg
 - Uses Expo Router 57 file-based routing.
 - The root layout (`app/_layout.tsx`) initializes Clerk and conditionally renders `PostHogProvider` if analytics is active.
 - Authenticated layout (`app/(app)/_layout.tsx`) wraps the authenticated stack with `SubscriptionProvider` keyed by `${userId}:${sessionId}`.
-- If development data mode is active, `(app)/_layout.tsx` renders a persistent, accessible banner: `"Development data — resets on reload"`.
+- The authenticated stack has no development data banner or additional top safe-area wrapper; individual screens handle safe-area spacing. Development storage and reset behavior are unchanged.
 - If no backend is connected (e.g. production build without backend), subscription views render `SubscriptionStateView` showing `"Backend not connected"`.
 
 ### 2.2 Domain & Model Layer (`apps/mobile/src/features/subscriptions/subscription-model.ts`)

@@ -19,7 +19,7 @@
 - `app/(app)/(tabs)/` — Authenticated tab screens consume subscription state from `SubscriptionProvider`; Settings remains accessible even when no backend is connected.
 - `app/(app)/subscriptions/[id].tsx` — Authenticated subscription detail route, outside the tab navigator.
 - `app/(auth)/` — Auth screens: sign-in, sign-up, reset-password, session-task. Rendered inside a Stack navigator.
-- `app/_layout.tsx` — Root Stack layout with ClerkProvider and optional PostHogProvider; `(app)/_layout.tsx` owns the authenticated app stack and persistent development data banner.
+- `app/_layout.tsx` — Root Stack layout with ClerkProvider and optional PostHogProvider; `(app)/_layout.tsx` owns the authenticated app stack without a development data banner; individual screens handle safe-area spacing.
 - `src/components/`, `src/features/`, `src/providers/`, `src/adapters/`, and `src/config/` — Mobile application code by responsibility.
 - `context/` — AI context documentation only. Provider source lives in `src/providers/`.
 - `global.css` — Design token definitions (colors, spacing, font families). All Tailwind/NativeWind classes are defined here under `@theme` and `@layer components`.

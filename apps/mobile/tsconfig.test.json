@@ -34,6 +34,9 @@
     "src/features/subscriptions/subscription-controller.test.ts",
     "src/features/subscriptions/utils.ts",
     "src/features/subscriptions/utils.test.ts",
+    "src/features/subscriptions/subscription-icons.test.ts",
+    "src/features/subscriptions/use-subscription-icons.test.ts",
+    "src/components/SubscriptionIcon.test.ts",
     "src/types/test-globals.d.ts"
   ]
 }

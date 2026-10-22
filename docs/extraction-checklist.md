@@ -43,7 +43,7 @@ This checklist tracks the decoupling and extraction of the SubHog Expo mobile ap
 - [x] Implemented explicit gate in `data-mode.ts`: `__DEV__ === true` AND `EXPO_PUBLIC_DATA_MODE === "development"`
 - [x] Tested production refusal: release builds never activate in-memory mode
 - [x] Implemented "Backend not connected" state in `SubscriptionStateView`
-- [x] Added persistent, accessible banner: `"Development data — resets on reload"` on all authenticated screens
+- [x] Development banner was added during extraction, then removed at the user's request on 2026-10-22; development data gating and resets remain unchanged
 
 ## 5. Session Isolation & Controller
 - [x] Scoped controller and provider by `${userId}:${sessionId}`

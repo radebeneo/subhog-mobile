@@ -1,5 +1,7 @@
+import { icons } from "@/config/icons";
+import { useCallback, useState } from "react";
 import type { ImageSourcePropType } from "react-native";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 import { SvgUri } from "react-native-svg";
 
 interface SubscriptionIconProps {
@@ -28,12 +30,32 @@ const SubscriptionIcon = ({
   className,
 }: SubscriptionIconProps) => {
   const uri = getRemoteUri(source);
+  const [failedSource, setFailedSource] = useState<ImageSourcePropType | null>(null);
+  const onError = useCallback(() => setFailedSource(source), [source]);
+  const dimensions = { width: size, height: size };
+  const fallback = <Image source={icons.wallet} style={dimensions} resizeMode="contain" />;
 
-  if (uri?.endsWith(".svg")) {
-    return <SvgUri uri={uri} width={size} height={size} />;
-  }
-
-  return <Image source={source} className={className} />;
+  return (
+    <View className={className} style={dimensions}>
+      {failedSource === source ? fallback : uri && /\.svg(?:[?#]|$)/i.test(uri) ? (
+        <SvgUri
+          key={uri}
+          uri={uri}
+          width={size}
+          height={size}
+          onError={onError}
+          fallback={fallback}
+        />
+      ) : (
+        <Image
+          source={source}
+          style={dimensions}
+          resizeMode="contain"
+          onError={onError}
+        />
+      )}
+    </View>
+  );
 };
 
 export default SubscriptionIcon;

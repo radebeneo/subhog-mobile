@@ -46,7 +46,7 @@
 
 }
 
-@layer components {
+/* Keep app classes unlayered so React Native Web defaults cannot override them. */
     .onboarding-safe-area {
         @apply flex-1 bg-accent;
     }
@@ -152,7 +152,7 @@
     }
 
     .upcoming-card {
-        @apply mr-4 w-44 rounded-2xl border border-black/10 bg-background p-4;
+        @apply mr-4 w-44 rounded-2xl border border-border bg-background p-4;
     }
 
     .upcoming-row {
@@ -450,4 +450,3 @@
     .category-chip-text-active {
         @apply text-accent;
     }
-}

@@ -24,12 +24,19 @@ const iconUri = (iconName: string) => {
 };
 
 const searchIconify = async (query: string): Promise<IconCandidates> => {
-  const response = await fetch(
-    `${ICONIFY_SEARCH_URL}?query=${encodeURIComponent(query)}&limit=30`,
-  );
-  if (!response.ok) return {};
-
-  const data = (await response.json()) as IconifySearchResponse;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  let data: IconifySearchResponse;
+  try {
+    const response = await fetch(
+      `${ICONIFY_SEARCH_URL}?query=${encodeURIComponent(query)}&limit=30`,
+      { signal: controller.signal },
+    );
+    if (!response.ok) return {};
+    data = (await response.json()) as IconifySearchResponse;
+  } finally {
+    clearTimeout(timeout);
+  }
   const results = data.icons ?? [];
   const normalizedQuery = normalize(query);
   const matchingIcons = results.filter((result) => result.includes(":"));

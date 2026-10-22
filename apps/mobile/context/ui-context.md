@@ -92,7 +92,7 @@ classes for repeating patterns:
 - **Subscription card inline expand**: Tapping a `sub-card` toggles an `expanded` boolean in local state. The card animates to show `sub-body` details below. Use `react-native-reanimated` for the height animation.
 - **Add Subscription modal**: React Native `<Modal>` with `transparent` + `animationType="slide"`. Renders as a bottom sheet using `modal-container` (`.mt-auto.max-h-[85%].rounded-t-3xl`). Backdrop is `modal-overlay` (`.bg-black/50`).
 - **Auth screens**: `SafeAreaView` → `ScrollView` → brand block (logo + wordmark) → auth card → form fields → submit button → link to other auth screen.
-- **Development indicator**: The authenticated stack displays the persistent accessible label "Development data — resets on reload" above both tabs and detail routes. No onboarding screen exists in this baseline.
+- **Development data UI**: No development data banner is displayed above tabs or detail routes. Development records still reset on reload, sign-out, or session switch. No onboarding screen exists in this baseline.
 
 ## Icons
 

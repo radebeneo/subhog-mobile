@@ -35,7 +35,7 @@ Expo mobile application for SubHog subscription tracking.
 When `__DEV__ === true` and `EXPO_PUBLIC_DATA_MODE=development`:
 - An in-memory repository is used for subscription create, read, update, cancel tracking, and delete.
 - Changes are held in memory and reset upon reload, user switch, or sign-out.
-- A persistent label `"Development data — resets on reload"` is displayed across authenticated screens.
+- No development data banner is displayed; the in-memory lifetime remains unchanged.
 - Analytics events are suppressed to prevent test data pollution.
 
 When development data mode is disabled or in release builds:

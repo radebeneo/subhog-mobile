@@ -158,9 +158,7 @@ PostHog is optional and non-fatal when unconfigured. When development data mode 
 1. **Transient Storage**: Subscriptions created or edited in development data mode exist solely in memory (`InMemorySubscriptionRepository`). No AsyncStorage, disk, or remote database is modified.
 2. **Session Isolation**: Subscription state is strictly scoped to the active Clerk session (`${userId}:${sessionId}`).
 3. **Automatic Resets**: Switching users or session IDs, signing out, or reloading resets in-memory data. A token refresh within the same user/session scope does not reset records. Strict Mode cleanup disposes its controller; the next effect setup creates a fresh instance.
-4. **Persistent Label**: A persistent, accessible banner is displayed at the top of authenticated screens:
-   `Development data — resets on reload`
-   This indicator remains visible on detail screens as well as dashboard tabs.
+4. **No Development Banner**: Authenticated screens do not display a development data banner. Removing the indicator does not change the transient storage or automatic resets described above.
 
 ### Release Build Behavior ("Backend Not Connected")
 

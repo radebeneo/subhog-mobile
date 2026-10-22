@@ -7,6 +7,7 @@ import {
   type SubscriptionState,
 } from "@/features/subscriptions/subscription-controller";
 import { toDisplaySubscription } from "@/features/subscriptions/subscription-display";
+import { useSubscriptionIcons } from "@/features/subscriptions/use-subscription-icons";
 import type {
   CreateSubscriptionInput,
   UpdateSubscriptionInput,
@@ -55,12 +56,18 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
       : { status: "signed-in", userId, sessionId };
   const { state, actionState, ...actions } = useSubscriptionSession(auth, isDevMode);
 
-  const subscriptions = useMemo(
-    () =>
-      state.status === "ready"
-        ? state.subscriptions.map(toDisplaySubscription)
-        : [],
+  const records = useMemo(
+    () => state.status === "ready" ? state.subscriptions : [],
     [state],
+  );
+  const iconScope = JSON.stringify([isLoaded, isSignedIn, userId, sessionId, isDevMode]);
+  const subscriptionIcons = useSubscriptionIcons(records, iconScope);
+  const subscriptions = useMemo(
+    () => records.map(record => toDisplaySubscription(
+      record,
+      subscriptionIcons?.get(record.name),
+    )),
+    [records, subscriptionIcons],
   );
 
   return (

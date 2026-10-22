@@ -6,7 +6,7 @@ import ts from "typescript";
 
 const root = new URL("../", import.meta.url);
 const mocks = new URL("./native-mocks.mjs", import.meta.url).href;
-const stubbed = new Set(["react-native", "react-native-safe-area-context", "nativewind", "@clerk/expo", "expo-router", "posthog-react-native"]);
+const stubbed = new Set(["react-native", "react-native-safe-area-context", "nativewind", "react-native-svg", "@clerk/expo", "expo-router", "posthog-react-native"]);
 Object.defineProperty(globalThis, "__DEV__", { value: true, configurable: true });
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
