@@ -1,0 +1,22 @@
+{
+  "name": "subhog-next",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": "24.11.x",
+    "npm": "11.6.x"
+  },
+  "workspaces": [
+    "apps/mobile"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=@subhog/mobile",
+    "lint": "npm run lint --workspace=@subhog/mobile",
+    "typecheck": "npm run typecheck --workspace=@subhog/mobile",
+    "test": "npm run test --workspace=@subhog/mobile"
+  },
+  "overrides": {
+    "lightningcss": "1.30.1"
+  }
+}

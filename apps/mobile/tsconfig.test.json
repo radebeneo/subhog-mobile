@@ -1,0 +1,39 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": [],
+  "files": [
+    "type.d.ts",
+    "image.d.ts",
+    "nativewind-env.d.ts",
+    "expo-env.d.ts",
+    "src/providers/SubscriptionContext.test.ts",
+    "src/components/CreateSubscriptionModal.test.ts",
+    "src/features/account/account-settings.test.ts",
+    "src/adapters/posthog-wiring.test.ts",
+    "src/features/subscriptions/subscription-form.test.ts",
+    "src/adapters/posthog-config.ts",
+    "src/adapters/posthog-config.test.ts",
+    "src/features/account/account-deletion.ts",
+    "src/features/account/account-deletion.test.ts",
+    "src/features/auth/auth-state.ts",
+    "src/features/auth/auth-state.test.ts",
+    "src/features/profile/profile-name.ts",
+    "src/features/profile/profile-name.test.ts",
+    "src/features/subscriptions/data-mode.ts",
+    "src/features/subscriptions/data-mode.test.ts",
+    "src/features/subscriptions/subscription-model.ts",
+    "src/features/subscriptions/subscription-model.test.ts",
+    "src/features/subscriptions/subscription-repository.ts",
+    "src/features/subscriptions/in-memory-subscription-repository.ts",
+    "src/features/subscriptions/in-memory-subscription-repository.test.ts",
+    "src/features/subscriptions/subscription-controller.ts",
+    "src/features/subscriptions/subscription-controller.test.ts",
+    "src/features/subscriptions/utils.ts",
+    "src/features/subscriptions/utils.test.ts",
+    "src/types/test-globals.d.ts"
+  ]
+}
